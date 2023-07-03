@@ -17,7 +17,7 @@ function getPokemonName() {
 //func consultar api
 function searchPokemonInfos() {
     let pokemonName = getPokemonName()
-    
+
     if (pokemonName !== "") {
         var url = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
         fetch(url)
@@ -40,7 +40,7 @@ function searchPokemonInfos() {
                     `
                 defineBackground(data.types[0].type.name)
 
-                if (data.types[1] != undefined) {
+                if (data.types[1] != undefined && data.types[0].type.name == "normal") {
                     defineBackground(data.types[1].type.name)
                 }
 
