@@ -29,8 +29,36 @@ function searchPokemonInfos() {
                 }
             })
             .then(data => {
-                //console.log(data)
-                document.getElementById("div-img-pokemon").innerHTML = `<img src="${data.sprites.front_default}">`
+                
+                let src = 
+                data.sprites.versions['generation-v']['black-white'].animated.front_default != null ? 
+                `${data.sprites.versions['generation-v']['black-white'].animated.front_default}` : `${data.sprites.front_default}`
+                /*criei essa variavel pois não são todos os pokemons que possuem esse atributo do pixel animado*/
+
+                document.getElementById("div-img-pokemon").innerHTML =
+                    `
+                <img 
+                src="${src}"
+                class= "img-pokemon"
+                >`
+
+                //img pokemon pixel => data.sprites.front_default
+                //gif pokemon pixel => data.sprites.versions['generation-v']['black-white'].animated.front_default
+
+                /*
+                o uso dos [] é necessário porque as propriedades "generation-v" e "black-white" contêm caracteres especiais (hífen). Ao usar as chaves, você está indicando 
+                que essas propriedades devem ser tratadas como uma string literal, permitindo que você acesse corretamente os valores dessas propriedades.Sem as chaves, o JavaScript
+                interpretaria o hífen como um operador de subtração e geraria um erro. Portanto, ao usar as chaves, você está garantindo que as propriedades sejam tratadas como strings 
+                literais e possam ser acessadas corretamente.
+                */
+                
+                defineBackground(data.types[0].type.name)
+
+                if (data.types[1] != undefined && data.types[0].type.name == "normal") {
+                    defineBackground(data.types[1].type.name)
+                }
+                
+
                 document.getElementById("div-infos-pokemon").innerHTML =
                     `
                     <p> 
@@ -38,16 +66,11 @@ function searchPokemonInfos() {
                     Type: ${data.types[0].type.name}
                     </p>
                     `
-                defineBackground(data.types[0].type.name)
-
-                if (data.types[1] != undefined && data.types[0].type.name == "normal") {
-                    defineBackground(data.types[1].type.name)
-                }
-
             })
             .catch(error => {
                 console.error("Erro na chamada da API: ", error)
-                document.getElementById("div-img-pokemon").innerHTML = `<img src= "img/ashmorto.jpg">`
+                document.getElementById("div-img-pokemon").style.backgroundImage = ""
+                document.getElementById("div-img-pokemon").innerHTML = `<img src= "img/ashmorto.jpg" class= "img-erro">`
                 document.getElementById("div-infos-pokemon").innerHTML =
                     `
                         <p> 
@@ -55,7 +78,6 @@ function searchPokemonInfos() {
                             Verifique se o nome do pokemon inserido está escrito corretamente e tente novamente!
                         </p>
                         `
-
             })
     }
 }
