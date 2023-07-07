@@ -7,34 +7,15 @@
     <title>API Pokemon!</title>
     <link rel="stylesheet" type="text/css" href="pokedex_css.css" media="screen">
 </head>
-<script src="index.js"></script>
+<script src="pokedexjs.js"></script>
 
 <body>
-    <div id="div-principal">
-
-        <div id="div-topo">
-            <div id="div-titulo">
-                <h1>P o k e d e x !!</h1>
-            </div>
-            <div id="div-escolherPokemon">
-                <label>Qual pokemon você deseja visualizar?</label> <br>
-                <input type="text" id="input-pokemon" maxlength="10"><br>
-                <button onclick="searchPokemonInfos()">Confirmar</button>
-            </div>
-        </div>
-
-        <div id="div-pokedex">
-            <img src="/pokedex.png" alt="pokedex" class="img-pokedex">
-
-            <div id="div-img-pokemon">
-
-            </div>
-
-            <div id="div-infos-pokemon">
-            
-            </div>
-        </div>
-
+    <div id="div-pokedex">
+        <img src="#" alt="pokemon" id="pokemon_img">
+        <form>
+            <img src="pokedex.png" alt="pokedex" class="img-pokedex">
+            <input type="search" id="input-pokemon" maxlength="10"><br>
+        </form>
     </div>
 </body>
 

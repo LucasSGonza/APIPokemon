@@ -6,21 +6,23 @@ https://github.com/manualdodev/pokedex
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oxanium', cursive;
+
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700;800&display=swap');
 
 body {
     text-align: center;
-    font-family: 'Oxanium', cursive;
-    font-size: xx-large;
     background: linear-gradient(#6ab7f5, #fff);
     min-height: 100vh;
+    overflow: hidden;
 }
 
-#div-principal {
+#div-pokedex {
     display: inline-block;
-    margin-top: 2%;
+    margin-top: 1%;
     padding: 15px;
     position: relative;
 }
@@ -30,17 +32,31 @@ body {
     margin-top: 2%;
 }
 
-#input-pokemon, button {
+#input-pokemon,
+button {
     font-family: 'Oxanium', cursive;
-    font-size: x-large;
-    margin-top: 5%;
+    font-size: large;
+    margin-top: 2%;
+    border-radius: 10%;
+}
+
+#input-pokemon {
+    width: 100%;
+    padding: 4%;
+    outline: none;
+    border: 2px solid #333;
+    border-radius: 5px;
+    font-weight: 600;
+    color: #3a444d;
+    font-size: clamp(8px, 5vw, 1rem);
+    box-shadow: -3px 4px 0 #888, -5px 7px 0 #333
 }
 
 #div-pokedex {
     margin: 10px;
     padding: 10px;
     width: 100%;
-    min-width: 400px;
+    min-width: 350px;
 }
 
 #div-img-pokemon {
@@ -49,7 +65,7 @@ body {
 }
 
 #div-infos-pokemon {
-    margin-top: 5%;
+    margin-top: 2%;
     position: absolute;
     bottom: 15%;
     left: 34%;

@@ -30,7 +30,7 @@ function searchPokemonInfos() {
             })
             .then(data => {
                 //console.log(data)
-                document.getElementById("div-img-pokemon").innerHTML =
+                document.getElementById("pokemon_img")
                     `
                 <img 
                 src="${data.sprites.versions['generation-v']['black-white'].animated.front_default}"
@@ -47,13 +47,7 @@ function searchPokemonInfos() {
                 literais e possam ser acessadas corretamente.
                 */
                 
-                document.getElementById("div-infos-pokemon").innerHTML =
-                    `
-                    <p> 
-                    Name: ${data.name} <br>
-                    Type: ${data.types[0].type.name}
-                    </p>
-                    `
+                document.getElementById("div-infos-pokemon") = ""
             })
             .catch(error => {
                 console.error("Erro na chamada da API: ", error)
