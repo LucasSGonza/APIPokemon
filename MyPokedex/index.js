@@ -2,20 +2,20 @@
 
 //function para pegar o nome do pokemon digitado no input
 function getPokemonName() {
-
-    let pokemonName = document.getElementById("input-pokemon").value.trim() //pega o nome do pokemon do input
+    let pokemonName = document.getElementById("input-pokemon").value.trim().toLowerCase() //pega o nome do pokemon do input
     var validCharacters = /^[a-zA-Z0-9\-]+$/ //verifica se contém apenas letras, números e hífen
 
     if ((pokemonName != "" && validCharacters.test(pokemonName))) { //verifica se o campo não está vazio
         return pokemonName
     } else {
         console.error("O nome do Pokémon contém caracteres inválidos ou está vazio")
+        alert("O nome do Pokémon contém caracteres inválidos ou está vazio")
         return ""
     }
 }
 
 //func consultar api
-function searchPokemonInfos() {
+function searchPokemonInfos(event) {
     let pokemonName = getPokemonName()
 
     if (pokemonName !== "") {
@@ -80,6 +80,7 @@ function searchPokemonInfos() {
                         `
             })
     }
+    event.preventDefault()
 }
 
 // function para definir o background da div, baseado no tipo do pokemon

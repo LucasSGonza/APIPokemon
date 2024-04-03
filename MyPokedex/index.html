@@ -18,8 +18,8 @@
             </div>
             <div id="div-escolherPokemon">
                 <label>Qual pokemon você deseja visualizar?</label> <br>
-                <input type="text" id="input-pokemon" maxlength="10"><br>
-                <button onclick="searchPokemonInfos()">Confirmar</button>
+                <input type="text" id="input-pokemon" maxlength="10"
+                    onkeydown="if (event.keyCode === 13) searchPokemonInfos(event)"><br>
             </div>
         </div>
 
@@ -30,7 +30,7 @@
             </div>
 
             <div id="div-infos-pokemon">
-            
+
             </div>
         </div>
 
